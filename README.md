@@ -14,10 +14,12 @@ This plugin has no UI of its own, it's primarily aimed at developers who will ad
 $plugin->dependencies = ['local_adminsettingsconfig' => 2018031900]
 ```
 to *your* plugin's version.php file.
+
 4.  Include a setting in *your* plugin's settings.php file.
 ```
 $setting = new \local_adminsettingsconfig\admin_setting_configjson($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 ```
+
 5. No need to use require_once or include_once.
