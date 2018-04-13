@@ -23,8 +23,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018031900;
-$plugin->requires  = 2014051200; // Moodle 2.7.
+$plugin->version   = 2018041300;
+$plugin->requires  = 2017111302; // Moodle 2.7.
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'Version for Moodle 2.7 onwards';
+$plugin->release   = '3.4.2';
 $plugin->component = 'local_adminsettingsconfig';

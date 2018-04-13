@@ -25,3 +25,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = "Admin Settings Config";
 $string['validatejsonerror'] = 'Invalid JSON.';
+$string['privacy:metadata'] = 'The local_adminsettingsconfig plugin does not store any personal data.';
