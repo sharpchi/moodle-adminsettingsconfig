@@ -15,9 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Json config text area validator.
+ *
  * @package   local_adminsettingsconfig
  * @author    Mark Sharp <m.sharp@chi.ac.uk>
- * @copyright 2018 University of Chichester {@link www.chi.ac.uk}
+ * @copyright 2018 University of Chichester {@link https://www.chi.ac.uk}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,10 +30,23 @@ defined('MOODLE_INTERNAL') || die();
  * Used to validate a textarea used for json.
  */
 class admin_setting_configjson extends \admin_setting_configtextarea {
+    /**
+     * Number of rows in the textarea
+     *
+     * @var int
+     */
     private $rows;
+
+    /**
+     * Number of columns in the textarea
+     *
+     * @var int
+     */
     private $cols;
 
     /**
+     * Constructor.
+     *
      * @param string $name
      * @param string $visiblename
      * @param string $description
@@ -53,7 +68,7 @@ class admin_setting_configjson extends \admin_setting_configtextarea {
      * @return mixed bool true for success or string:error on failure
      */
     public function validate($data) {
-        if(!empty($data)) {
+        if (!empty($data)) {
             $validjson = json_decode($data);
         } else {
             return true;

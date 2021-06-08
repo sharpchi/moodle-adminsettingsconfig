@@ -15,14 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Language string file for adminsettingsconfig.
+ *
  * @package   local_adminsettingsconfig
  * @author    Mark Sharp <m.sharp@chi.ac.uk>
- * @copyright 2018 University of Chichester {@link www.chi.ac.uk}
+ * @copyright 2018 University of Chichester {@link https://www.chi.ac.uk}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = "Admin Settings Config";
-$string['validatejsonerror'] = 'Invalid JSON.';
 $string['privacy:metadata'] = 'The local_adminsettingsconfig plugin does not store any personal data.';
+$string['validatejsonerror'] = 'Invalid JSON.';

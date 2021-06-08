@@ -15,16 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Version file for adminsettingsconfig
+ *
  * @package   local_adminsettingsconfig
  * @author    Mark Sharp <m.sharp@chi.ac.uk>
- * @copyright 2018 University of Chichester {@link www.chi.ac.uk}
+ * @copyright 2018 University of Chichester {@link https://www.chi.ac.uk}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018110900;
-$plugin->requires  = 2017111302; // Moodle 2.7.
+$plugin->version   = 2021060800;
+$plugin->requires  = 2017111302; // Moodle 3.4.
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '3.4.2';
+$plugin->release   = '3.4.3';
 $plugin->component = 'local_adminsettingsconfig';
