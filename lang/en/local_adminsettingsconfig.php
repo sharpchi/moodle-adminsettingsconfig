@@ -27,4 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = "Admin Settings Config";
 $string['privacy:metadata'] = 'The local_adminsettingsconfig plugin does not store any personal data.';
-$string['validatejsonerror'] = 'Invalid JSON.';
+$string['validatejsonerror'] = 'Invalid JSON';
+$string['validateregexerror'] = 'Invalid Regular Expression. Error message: {$a->errormessage} ({$a->errorcode})';
+$string['regexerrorcode1'] = 'Internal error';
+$string['regexerrorcode2'] = 'Backtrack limit exhausted';
+$string['regexerrorcode3'] = 'Recursion limit exhausted';
+$string['regexerrorcode4'] = 'Malformed UTF-8 characters, possibly incorrectly encoded';
+$string['regexerrorcode5'] = 'The offset did not correspond to the beginning of a valid UTF-8 code point';
