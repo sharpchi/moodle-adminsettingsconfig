@@ -24,7 +24,6 @@
 
 namespace local_adminsettingsconfig\privacy;
 
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Privacy Subsystem for local_adminsettingsconfig implementing null_provider.

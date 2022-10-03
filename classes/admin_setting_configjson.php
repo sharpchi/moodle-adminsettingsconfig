@@ -25,7 +25,6 @@
 
 namespace local_adminsettingsconfig;
 
-defined('MOODLE_INTERNAL') || die();
 /**
  * Used to validate a textarea used for json.
  */

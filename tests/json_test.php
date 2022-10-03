@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Regex unit tests
+ * JSON unit tests
  *
  * @package   local_adminsettingsconfig
  * @author    Mark Sharp <mark.sharp@solent.ac.uk>
@@ -24,27 +24,34 @@
  */
 
 namespace local_adminsettingsconfig;
-global $CFG;
+
 use advanced_testcase;
 
-
+defined('MOODLE_INTERNAL') || die();
+global $CFG;
 require_once($CFG->libdir . '/adminlib.php');
 
-class local_adminsettingsconfig_regex_test extends advanced_testcase {
+/**
+ * JSON setting test
+ * @covers \local_adminsettingsconfig\admin_setting_configjson
+ */
+class json_test extends advanced_testcase {
 
     /**
-     * @dataProvider regex_provider
-     * @param string $regex A regular expression string
+     * Test JSON validation
+     *
+     * @dataProvider json_provider
+     * @param string $setting A regular expression string
      * @param string $expectederrormessage Expected error message. Empty string for no error.
      * @return void
      */
-    public function test_regex($setting, $expectederrormessage) {
+    public function test_json($setting, $expectederrormessage) {
         $this->resetAfterTest();
-        $adminsetting = new \local_adminsettingsconfig\admin_setting_configregex('abc_cde/regex', 'some desc', '', '');
+        $adminsetting = new admin_setting_configjson('abc_cde/json', 'some desc', '', '');
         $errormessage = $adminsetting->write_setting($setting);
         $this->assertSame($errormessage, $expectederrormessage);
         if ($expectederrormessage == '') {
-            $this->assertSame($setting, get_config('abc_cde', 'regex'));
+            $this->assertSame($setting, get_config('abc_cde', 'json'));
             $this->assertSame($setting, $adminsetting->get_setting());
         } else {
             $this->assertFalse(get_config('abc_cde', 'regex'));
@@ -53,23 +60,43 @@ class local_adminsettingsconfig_regex_test extends advanced_testcase {
     }
 
     /**
-     * A data provider for test_regex
+     * A data provider for test_json
      *
      * @return array List of data with setting and expectederrormessage set.
      */
-    public function regex_provider() {
+    public function json_provider() {
         return [
-            'string' => [
+            'string - invalid' => [
                 'setting' => 'string',
-                'expectederrormessage' => '',
+                'expectederrormessage' => 'Invalid JSON',
             ],
             'wellformed' => [
-                'setting' => '.*([a-z][0-9]+)\w',
+                'setting' => '{"menu": {
+                    "id": "file",
+                    "value": "File",
+                    "popup": {
+                      "menuitem": [
+                        {"value": "New", "onclick": "CreateNewDoc()"},
+                        {"value": "Open", "onclick": "OpenDoc()"},
+                        {"value": "Close", "onclick": "CloseDoc()"}
+                      ]
+                    }
+                  }}',
                 'expectederrormessage' => ''
             ],
-            'openbrackets' => [
-                'setting' => 'abc(',
-                'expectederrormessage' => 'Invalid Regular Expression. Error message: Internal error (1)'
+            'notclosedproperly - invalid' => [
+                'setting' => '{"menu": {
+                    "id": "file",
+                    "value": "File",
+                    "popup": {
+                      "menuitem": [
+                        {"value": "New", "onclick": "CreateNewDoc()"},
+                        {"value": "Open", "onclick": "OpenDoc()"},
+                        {"value": "Close", "onclick": "CloseDoc()"}
+                      ]
+                    }
+                  }',
+                'expectederrormessage' => 'Invalid JSON'
             ]
         ];
     }
