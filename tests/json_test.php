@@ -64,7 +64,7 @@ class json_test extends advanced_testcase {
      *
      * @return array List of data with setting and expectederrormessage set.
      */
-    public function json_provider() {
+    public static function json_provider(): array {
         return [
             'string - invalid' => [
                 'setting' => 'string',
@@ -82,7 +82,7 @@ class json_test extends advanced_testcase {
                       ]
                     }
                   }}',
-                'expectederrormessage' => ''
+                'expectederrormessage' => '',
             ],
             'notclosedproperly - invalid' => [
                 'setting' => '{"menu": {
@@ -96,9 +96,8 @@ class json_test extends advanced_testcase {
                       ]
                     }
                   }',
-                'expectederrormessage' => 'Invalid JSON'
-            ]
+                'expectederrormessage' => 'Invalid JSON',
+                ],
         ];
     }
 }
-

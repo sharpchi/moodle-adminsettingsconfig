@@ -64,7 +64,7 @@ class regex_test extends advanced_testcase {
      *
      * @return array List of data with setting and expectederrormessage set.
      */
-    public function regex_provider() {
+    public static function regex_provider(): array {
         return [
             'string' => [
                 'setting' => 'string',
@@ -72,12 +72,12 @@ class regex_test extends advanced_testcase {
             ],
             'wellformed' => [
                 'setting' => '.*([a-z][0-9]+)\w',
-                'expectederrormessage' => ''
+                'expectederrormessage' => '',
             ],
             'openbrackets' => [
                 'setting' => 'abc(',
-                'expectederrormessage' => 'Invalid Regular Expression. Error message: Internal error (1)'
-            ]
+                'expectederrormessage' => 'Invalid Regular Expression. Error message: Internal error (1)',
+            ],
         ];
     }
 }

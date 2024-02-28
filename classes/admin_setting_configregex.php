@@ -85,7 +85,7 @@ class admin_setting_configregex extends \admin_setting_configtextarea {
 
             return get_string('validateregexerror', 'local_adminsettingsconfig', [
                 'errorcode' => $errorcode,
-                'errormessage' => $errormessage
+                'errormessage' => $errormessage,
             ]);
         }
         return true;
