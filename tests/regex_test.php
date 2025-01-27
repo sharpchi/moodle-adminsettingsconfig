@@ -35,7 +35,7 @@ require_once($CFG->libdir . '/adminlib.php');
  * Regex setting test
  * @covers \local_adminsettingsconfig\admin_setting_configregex
  */
-class regex_test extends advanced_testcase {
+final class regex_test extends advanced_testcase {
 
     /**
      * Test regex validation
@@ -45,7 +45,7 @@ class regex_test extends advanced_testcase {
      * @param string $expectederrormessage Expected error message. Empty string for no error.
      * @return void
      */
-    public function test_regex($setting, $expectederrormessage) {
+    public function test_regex($setting, $expectederrormessage): void {
         $this->resetAfterTest();
         $adminsetting = new admin_setting_configregex('abc_cde/regex', 'some desc', '', '');
         $errormessage = $adminsetting->write_setting($setting);
@@ -81,4 +81,3 @@ class regex_test extends advanced_testcase {
         ];
     }
 }
-

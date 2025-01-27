@@ -35,7 +35,7 @@ require_once($CFG->libdir . '/adminlib.php');
  * JSON setting test
  * @covers \local_adminsettingsconfig\admin_setting_configjson
  */
-class json_test extends advanced_testcase {
+final class json_test extends advanced_testcase {
 
     /**
      * Test JSON validation
@@ -45,7 +45,7 @@ class json_test extends advanced_testcase {
      * @param string $expectederrormessage Expected error message. Empty string for no error.
      * @return void
      */
-    public function test_json($setting, $expectederrormessage) {
+    public function test_json($setting, $expectederrormessage): void {
         $this->resetAfterTest();
         $adminsetting = new admin_setting_configjson('abc_cde/json', 'some desc', '', '');
         $errormessage = $adminsetting->write_setting($setting);
